@@ -22,10 +22,10 @@
             	<span th:case="'FEMININO'" th:text="Feminino"></span>
             </td>
              -->
-             <td>
+            <td>
              	<span th:if="${pessoa.sexo.name() == 'MASCULINO'}" th:text = "Masculino"></span>
              	<span th:unless="${pessoa.sexo.name() == 'MASCULINO'}" th:text = "Feminino"></span>
-             </td>
+            </td>
         </tr>
         
     </table>
