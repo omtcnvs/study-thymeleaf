@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Listagem de pessoas</title>
+</head>
+<body>
+    <h1>Listagem de pessoas.</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data nascimento</th>
+            <th>Sexo</th>
+        </tr>
+        <tr th:each="pessoa: ${pessoas}">
+            <td th:text="${pessoa.id}"></td>
+            <td th:text="${pessoa.nome}"></td>
+            <td th:text="${pessoa.dataNascimento}"></td>
+            <!-- <td th:switch="${pessoa.sexo.name()}">''.'.'
+            	<span th:case="'MASCULINO'" th:text="Masculino"></span>
+            	<span th:case="'FEMININO'" th:text="Feminino"></span>
+            </td>
+             -->
+             <td>
+             	<span th:if="${pessoa.sexo.name() == 'MASCULINO'}" th:text = "Masculino"></span>
+             	<span th:unless="${pessoa.sexo.name() == 'MASCULINO'}" th:text = "Feminino"></span>
+             </td>
+        </tr>
+        
+    </table>
+</body>
+</html>
